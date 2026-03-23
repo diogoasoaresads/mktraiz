@@ -1,4 +1,4 @@
-import { processGeocodingQueue } from './src/lib/geocoding';
+import { processGeocodingQueue } from '../../src/lib/geocoding';
 
 async function run() {
     try {

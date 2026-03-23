@@ -1,5 +1,5 @@
-import getDb from './src/lib/db';
-import { geocodeAddress } from './src/lib/geocoding';
+import getDb from '../../src/lib/db';
+import { geocodeAddress } from '../../src/lib/geocoding';
 
 const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 

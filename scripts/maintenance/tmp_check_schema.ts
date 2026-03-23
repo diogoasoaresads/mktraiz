@@ -1,4 +1,4 @@
-import getDb from './src/lib/db/index';
+import getDb from '../../src/lib/db/index';
 
 async function check() {
     try {
