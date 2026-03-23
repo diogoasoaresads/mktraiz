@@ -1,0 +1,15 @@
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next
+.git
+.env*.local
+.vercel
+data/
+/data/*.sqlite
+/data/*.sqlite-journal
+/data/*.sqlite-shm
+/data/*.sqlite-wal
+database.sqlite
