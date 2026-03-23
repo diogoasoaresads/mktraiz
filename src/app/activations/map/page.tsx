@@ -247,7 +247,7 @@ export default function ActivationMapPage() {
                                 <button onClick={() => setViewMode('both')} className={`p-1.5 rounded-md transition-all ${viewMode === 'both' ? 'bg-white shadow text-slate-900' : 'text-slate-400 hover:text-slate-600'}`}>
                                     <LayoutIcon size={14} />
                                 </button>
-                                <button onClick={() => setViewMode('map')} className={`p-1.5 rounded-md transition-all ${viewMode === 'map' ? 'bg-white shadow text-slate-900' : 'text-slate-400 hover:text-slate-600'}`}>
+                                <button onClick={() => setViewMode('map')} className="p-1.5 rounded-md transition-all text-slate-400 hover:text-slate-600">
                                     <Maximize2 size={14} />
                                 </button>
                             </div>
