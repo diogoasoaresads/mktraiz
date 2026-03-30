@@ -54,9 +54,9 @@ function LoginContent() {
                         <img src="/logo.png?v=4" alt="Raiz Educação" className="w-20 h-20 object-contain" />
                     </div>
                     <h1 className="text-4xl font-black text-white tracking-tighter uppercase">
-                        Off-<span className="text-primary-500">Raiz</span>
+                        Hub <span className="text-primary-500">360</span>
                     </h1>
-                    <p className="text-slate-500 text-xs font-bold mt-2 uppercase tracking-[0.3em]">Inteligência OOH</p>
+                    <p className="text-slate-500 text-xs font-bold mt-2 uppercase tracking-[0.3em]">Intelligence Mkt Raiz</p>
                 </div>
 
                 {/* Card */}
