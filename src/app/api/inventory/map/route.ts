@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import getDb from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * Lightweight endpoint that returns ONLY geocoded inventory items
  * with minimal fields needed for map rendering.
