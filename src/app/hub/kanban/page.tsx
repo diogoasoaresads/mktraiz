@@ -246,10 +246,87 @@ export default function HubKanban() {
         }
     };
 
-    if (loading || !currentPipeline) {
+    if (loading) {
         return (
             <div className="flex h-screen bg-[#0a0c10] items-center justify-center">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+            </div>
+        );
+    }
+
+    if (!currentPipeline) {
+        return (
+            <div className="flex h-screen bg-[#0a0c10] items-center justify-center flex-col gap-6">
+                <div className="w-20 h-20 bg-primary-600/10 rounded-3xl flex items-center justify-center border border-primary-600/20">
+                    <ClipboardList size={40} className="text-primary-500" />
+                </div>
+                <div className="text-center space-y-2">
+                    <h2 className="text-2xl font-black text-white uppercase tracking-tight">Nenhum Quadro Encontrado</h2>
+                    <p className="text-slate-500 text-sm font-bold tracking-widest uppercase">Crie um pipeline para começar a organizar as demandas.</p>
+                </div>
+                <button 
+                    onClick={() => setIsCreatingPipeline(true)}
+                    className="mt-4 px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white font-black text-xs uppercase tracking-widest rounded-2xl shadow-xl shadow-primary-600/20 transition-all flex items-center gap-2"
+                >
+                    <Plus size={18} />
+                    Criar Primeiro Quadro
+                </button>
+                {isCreatingPipeline && (
+                    <div className="fixed inset-0 z-[120] flex items-center justify-center p-4">
+                        <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={() => setIsCreatingPipeline(false)}></div>
+                        <div className="relative w-full max-w-md bg-[#0d1117] border border-slate-800 rounded-[2.5rem] p-10 shadow-2xl animate-in zoom-in duration-300">
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="w-12 h-12 bg-primary-600/20 rounded-2xl flex items-center justify-center text-primary-500 border border-primary-600/30">
+                                    <ClipboardList size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-black text-white uppercase tracking-tight">Novo Quadro</h3>
+                                    <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Defina o fluxo da sua equipe</p>
+                                </div>
+                            </div>
+    
+                            <div className="space-y-6">
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Nome da Equipe / Projeto</label>
+                                    <input 
+                                        autoFocus
+                                        type="text"
+                                        placeholder="Ex: Social Media, UX Design..."
+                                        value={newPipelineName}
+                                        onChange={(e) => setNewPipelineName(e.target.value)}
+                                        className="w-full bg-slate-900 border-none rounded-2xl p-4 text-sm font-bold text-white focus:ring-2 focus:ring-primary-500 transition-all outline-none"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Descrição (Opcional)</label>
+                                    <textarea 
+                                        rows={3}
+                                        placeholder="Para que serve este quadro?"
+                                        value={newPipelineDesc}
+                                        onChange={(e) => setNewPipelineDesc(e.target.value)}
+                                        className="w-full bg-slate-900 border-none rounded-2xl p-4 text-sm font-bold text-white focus:ring-2 focus:ring-primary-500 transition-all outline-none resize-none"
+                                    />
+                                </div>
+                            </div>
+    
+                            <div className="grid grid-cols-2 gap-4 mt-10">
+                                <button 
+                                    onClick={() => setIsCreatingPipeline(false)}
+                                    className="px-6 py-4 bg-slate-800 text-slate-400 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-slate-700 transition-all hover:text-white"
+                                >
+                                    Cancelar
+                                </button>
+                                <button 
+                                    onClick={handleCreatePipeline}
+                                    disabled={!newPipelineName}
+                                    className="px-6 py-4 bg-primary-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-primary-500 transition-all shadow-lg shadow-primary-600/20 disabled:opacity-50"
+                                >
+                                    Criar Quadro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         );
     }
